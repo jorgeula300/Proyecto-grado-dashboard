@@ -58,7 +58,7 @@ export function Login({recibirToken}) {
 
 
     return (<div className="container flex items-center w-screen h-screen ">
-        <form onSubmit={handleSubmit} className='container flex flex-col p-5 mx-auto bg-slate-300 w-2/4 h-2/4 items-center space-y-2 rounded-2xl shadow-xl shadow-[#0B2239]'>
+        <form onSubmit={handleSubmit} className='container flex flex-col p-5 mx-auto bg-slate-300 w-2/4 h-2/4 items-center space-y-2 rounded-2xl shadow-lg shadow-[#0B2239]'>
             <img
                 src={logo}
                 alt="logo"

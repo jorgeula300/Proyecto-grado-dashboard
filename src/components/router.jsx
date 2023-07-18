@@ -2,7 +2,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LayoutPublic } from "./LayoutPublic";
 import { NotFound } from "../pages/NotFound";
-import { Login } from "../pages/Login";
+import { Login } from "../pages/Login.jsx";
 import { Home } from '../pages/Home';
 import { Datos } from "../pages/Datos";
 import { Componentes } from "../pages/Componentes";
@@ -32,7 +32,7 @@ let router = null
                     },
                     {
                         path: '/Home',
-                        element:<> <Menu/><Home /></> ,
+                        element:<> <Menu/><Home  /></> ,
                     },
                     {
                         path: "/Datos",

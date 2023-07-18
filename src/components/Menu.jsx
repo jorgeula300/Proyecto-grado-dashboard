@@ -21,7 +21,7 @@ export function Menu() {
 
     return (<>
         {/* <Menu className="hidden" recibirToken={recibirToken}/> */}
-        <div id='menu' className='bg-[#0B2239] w-screen h-[15%] lg:h-screen lg:w-[15%] lg:justify-center lg:space-y-20 border-r-2 border-[black] shadow-inner  shadow-[#0B2239]'>
+        <div id='menu' className='bg-[#0B2239] w-screen h-[15%] lg:h-screen lg:w-[15%] lg:justify-center lg:space-y-20 border-r-2 border-[#0B2239] shadow-inner  shadow-[#0B2239]'>
             <div id='logo' className='shadow-sm shadow-emerald-700'>
                 <img src="/airQ.png" alt="Logo" className=' ' />
             </div>
