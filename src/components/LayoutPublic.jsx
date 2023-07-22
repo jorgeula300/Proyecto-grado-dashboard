@@ -6,7 +6,7 @@ export  function LayoutPublic() {
         <> 
      
 
-        <main className='main flex flex-col lg:flex-row h-screen w-screen   '>
+        <main className='main flex flex-col lg:flex-row h-screen w-screen  '>
             {/* <Menu /> */}
             <Outlet />
         </main>
