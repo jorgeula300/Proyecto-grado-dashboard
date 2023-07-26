@@ -27,7 +27,7 @@ ChartJS.register(
 
 
 
-export function LinesChart() {
+export function Lines2() {
     var co2 = [0, 56, 20, 36, 80, 40, 30, -20, 25, 30, 12, 60];
     var humedad = [1, 20, 70, 50, 100, 10, 9, -1, 88, 40, 25, 100];
     var hora = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM"];  // de 8am a 12pm me tiene que mandar un objeto con todas las medisiones el objeto debe de tener la lista de datos de cada medision.
@@ -75,56 +75,26 @@ export function LinesChart() {
                         labels: hora,
                         datasets: [ // Cada una de las líneas del gráfico
                             {
-                                label: 'Co2',
-                                data: respuesta.medicion_sensores.co,
+                                label: 'Humedad',
+                                data: respuesta.medicion_sensores.humedad,
                                 tension: 0.5,
                                 fill: false,
-                                borderColor: 'rgb(255, 99, 132)',
-                                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                                borderColor: 'rgb(25, 99, 132)',
+                                backgroundColor: 'rgba(25, 99, 132, 0.5)',
                                 pointRadius: 5,
-                                pointBorderColor: 'rgba(255, 99, 132)',
-                                pointBackgroundColor: 'rgba(255, 99, 132)',
+                                pointBorderColor: 'rgba(25, 99, 132)',
+                                pointBackgroundColor: 'rgba(25, 99, 132)',
                             },
                             {
-                                label: 'Polvo',
-                                data: respuesta.medicion_sensores.polvo,
+                                label: 'Temperatura',
+                                data: respuesta.medicion_sensores.temperatura,
                                 tension: 0.5,
                                 fill: false,
-                                borderColor: 'rgba(255, 255, 0, 1)',
-                                backgroundColor: 'rgba(128, 128, 0, 1)',
+                                borderColor: 'rgba(0, 128, 0, 1)',
+                                backgroundColor: 'rgba(0, 64, 0, 1)',
                                 pointRadius: 5,
-                                pointBorderColor: 'rgba(255, 255, 0, 1)',
-                                pointBackgroundColor: 'rgba(128, 128, 0, 1)',
-                            }, {
-                                label: 'Ozono',
-                                data: respuesta.medicion_sensores.ozono,
-                                tension: 0.5,
-                                fill: false,
-                                borderColor: 'rgba(255, 192, 203, 1)',
-                                backgroundColor: 'rgba(192, 128, 128, 1)',
-                                pointRadius: 5,
-                                pointBorderColor: 'rgba(255, 192, 203, 1)',
-                                pointBackgroundColor: 'rgba(255, 192, 203, 1)',
-                            }, {
-                                label: 'NO2',
-                                data: respuesta.medicion_sensores.no2,
-                                tension: 0.5,
-                                fill: false,
-                                borderColor: 'rgba(255, 165, 0, 1)',
-                                backgroundColor: 'rgba(128, 82, 0, 1)',
-                                pointRadius: 5,
-                                pointBorderColor: 'rgba(255, 165, 0, 1)',
-                                pointBackgroundColor: 'rgba(255, 165, 0, 1)',
-                            }, {
-                                label: 'SO2',
-                                data: respuesta.medicion_sensores.so2,
-                                tension: 0.5,
-                                fill: false,
-                                borderColor: 'rgba(128, 0, 128, 1)',
-                                backgroundColor: 'rgba(64, 0, 64, 1)',
-                                pointRadius: 5,
-                                pointBorderColor: 'rgba(128, 0, 128, 1)',
-                                pointBackgroundColor: 'rgba(128, 0, 128, 1)',
+                                pointBorderColor: 'rgba(0, 128, 0, 1)',
+                                pointBackgroundColor: 'rgba(0, 128, 0, 1)',
                             },
                         ],
                     }, 100)
@@ -149,7 +119,7 @@ export function LinesChart() {
         scales: {
             y: {
                 min: 0,
-                max: 6
+                max: 100
             },
             x: {
                 ticks: { color: 'rgb(255, 99, 132)' }
