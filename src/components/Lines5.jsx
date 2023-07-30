@@ -27,10 +27,10 @@ ChartJS.register(
 
 
 
-export function Lines2() {
-    var co2 = [0];
-    var humedad = [1];
-    let hora = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM"];  // de 8am a 12pm me tiene que mandar un objeto con todas las medisiones el objeto debe de tener la lista de datos de cada medision.
+export function Lines5() {
+    let co2 = [0];
+    let humedad = [1];
+    let hora = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];  // de 8am a 12pm me tiene que mandar un objeto con todas las medisiones el objeto debe de tener la lista de datos de cada medision.
 
     const [midata, setMidata] = useState(
         {
@@ -63,10 +63,10 @@ export function Lines2() {
     const intervalRef = useRef(null);
 
     useEffect(() => {
-        let hora = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM"];
+        let hora = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];  // de 8am a 12pm me tiene que mandar;
 
         intervalRef.current = setInterval(() => {
-            let url = 'http://191.101.235.193/medicion_hora';
+            let url = 'http://191.101.235.193/medicion_mes';
 
             fetch(url)
                 .then(res => res.json())
