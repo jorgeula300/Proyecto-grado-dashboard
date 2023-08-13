@@ -3,9 +3,10 @@ import logo from '../logo.svg';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-export function Login({recibirToken}) {
+export function Login({ recibirToken }) {
     const [usuario, setUsuario] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
     // const [login, setLogin] = useState(false);
     // const [recordarme, setRecordarme] = useState(false);
     let token = '';
@@ -18,10 +19,10 @@ export function Login({recibirToken}) {
 
         setPassword(e.target.value);
     }
-    const tomarDatosDelInputCheck = (e) => {
-        console.log(e.target.checked);
-        // setRecordarme(e.target.checked);
-    }
+    // const tomarDatosDelInputCheck = (e) => {
+    //     console.log(e.target.checked);
+    //     // setRecordarme(e.target.checked);
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -40,7 +41,7 @@ export function Login({recibirToken}) {
                 token = response.data;
                 // console.log(token.detail);
                 console.log(token);
-               
+
                 // Guardar el token en el localStorage o en el estado global
                 localStorage.setItem("token", token);
                 navigate('/Home');
@@ -48,9 +49,37 @@ export function Login({recibirToken}) {
             })
             .catch(error => {
                 // Si ocurrió un error durante la autenticación, puedes manejarlo aquí
-                alert(`Error de autenticación usuario o contraseña incorrectos ${error.response.data}`);
+                console.log(error.request.status);
+                if (error.request.status === 0) {
+                    setError("Error de red verifica tu conexión")
+                } else if (error.request.status === 400) {
+                    setError("Error en los datos ingresados")
+                }
+                else if (error.request.status === 401) {
+                    setError("Usuario o contraseña incorrectos")
+                } else if (error.request.status === 403) {
+                    setError("Usuario no autorizado")
+                } else if (error.request.status === 404) {
+                    setError("Recurso no encontrado")
+                }
+                else if (error.request.status === 500) {
+                    setError("Error del servidor")
+                }
+                else if (error.request.status === 503) {
+                    setError("Servicio no disponible")
+                }
+                else if (error.request.status === 504) {
+                    setError("Servicio no disponible")
+                
+                } 
+                else if (error.request.status === 505) {
+                    setError("Servicio no disponible")
+                } else{
+                    setError(error.message);
+                }
+
             });
-           
+
 
     };
 
@@ -64,6 +93,7 @@ export function Login({recibirToken}) {
                 alt="logo"
                 className='w-[100px] h-[100px]  bg-black text-white rounded-full'
             />
+            {error&& <p className=' bg-red-800 text-white p-2 rounded-md'>{error} </p>}
             <input
                 type="text"
                 placeholder='Usuario'
@@ -78,7 +108,7 @@ export function Login({recibirToken}) {
                 onChange={tomarDatosDelInputPassw}
                 className='bg-white  text-[#0B2239] border-2 border-[#0B2239]  w-[50%] h-[10%] p-2 rounded-md placeholder-[#0B2239]'
             />
-            <div className='flex justify-stretch  w-[50%]'>
+            {/* <div className='flex justify-stretch  w-[50%]'>
                 <input
                     type="checkbox"
                     placeholder='Recordarme'
@@ -89,7 +119,7 @@ export function Login({recibirToken}) {
 
                 /> <label className='text-[#0B2239] relative right-[40%]'>Recordarme</label>
 
-            </div>
+            </div> */}
             <button className='bg-[#0B2239] hover:bg-sky-900 focus:outline-none focus:ring-sky-700 text-white w-[50%]  p-2 rounded-md'>Ingresar</button>
         </form>
     </div>);
